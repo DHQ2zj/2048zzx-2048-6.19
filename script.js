@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameMessage = document.querySelector('.game-message');
     const gameMessageText = document.querySelector('.game-message p');
     
+    // 添加方向按钮元素
+    const btnUp = document.getElementById('btn-up');
+    const btnRight = document.getElementById('btn-right');
+    const btnDown = document.getElementById('btn-down');
+    const btnLeft = document.getElementById('btn-left');
+    
     let grid = [];
     let score = 0;
     let bestScore = localStorage.getItem('bestScore') || 0;
@@ -433,6 +439,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 新游戏按钮
     newGameButton.addEventListener('click', initGame);
     tryAgainButton.addEventListener('click', initGame);
+    
+    // 添加方向按钮的事件监听器
+    btnUp.addEventListener('click', () => moveTiles('up'));
+    btnRight.addEventListener('click', () => moveTiles('right'));
+    btnDown.addEventListener('click', () => moveTiles('down'));
+    btnLeft.addEventListener('click', () => moveTiles('left'));
     
     // 初始化游戏
     initGame();
